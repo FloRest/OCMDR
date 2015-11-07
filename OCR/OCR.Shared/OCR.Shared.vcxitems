@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>65f99c88-ac2b-4282-975f-d8402d746e35</SharedGUID>
+    <ItemsProjectGuid>{dfd364ec-f4d3-43c6-82ee-1a9c6c147919}</ItemsProjectGuid>
+    <ItemsRootNamespace>OCR</ItemsRootNamespace>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
+      <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
+    </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)App.xaml.h">
+      <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
+    </ClInclude>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />                   
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+</Project>
