@@ -292,20 +292,20 @@ namespace OCR
 
             vectors[0] = new List<double>();
             vectors[1] = new List<double>();
-            for (x = 0; x < this.bitmap.Width; x++) {
+            for (x = 0; x < source.Width; x++) {
                 vectors[0].Add(0);
-                for (y = 0; y < this.bitmap.Height; y++) {
-                    System.Drawing.Color pixelColor = this.bitmap.GetPixel(x, y);
+                for (y = 0; y < source.Height; y++) {
+                    System.Drawing.Color pixelColor = source.GetPixel(x, y);
                     if (pixelColor.R <= this.grayLimit) {
                         vectors[0][xp] += 1;
                     }
                 }
                 xp++;
             }
-            for (y = 0; y < this.bitmap.Height; y++) {
+            for (y = 0; y < source.Height; y++) {
                 vectors[1].Add(0);
-                for (x = 0; x < this.bitmap.Width; x++) {
-                    System.Drawing.Color pixelColor = this.bitmap.GetPixel(x, y);
+                for (x = 0; x < source.Width; x++) {
+                    System.Drawing.Color pixelColor = source.GetPixel(x, y);
                     if (pixelColor.R <= this.grayLimit) {
                         vectors[1][yp] += 1;
                     }
@@ -314,6 +314,7 @@ namespace OCR
             }
             res[0] = vectors[0].ToArray();
             res[1] = vectors[1].ToArray();
+            Console.WriteLine("[{0}]", string.Join(", ", res[0]));
             return res;
         }
 
