@@ -116,36 +116,33 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="assets\a.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\b.bmp" />
-    <Resource Include="assets\c.bmp" />
-    <Resource Include="assets\d.bmp" />
-    <Resource Include="assets\e.bmp" />
-    <Resource Include="assets\f.bmp" />
-    <Resource Include="assets\g.bmp" />
-    <Resource Include="assets\h.bmp" />
-    <Resource Include="assets\i.bmp" />
-    <Resource Include="assets\j.bmp" />
-    <Resource Include="assets\k.bmp" />
-    <Resource Include="assets\l.bmp" />
-    <Resource Include="assets\m.bmp" />
-    <Resource Include="assets\n.bmp" />
-    <Resource Include="assets\o.bmp" />
-    <Resource Include="assets\p.bmp" />
-    <Resource Include="assets\q.bmp" />
-    <Resource Include="assets\r.bmp" />
-    <Resource Include="assets\s.bmp" />
-    <Resource Include="assets\t.bmp" />
-    <Resource Include="assets\u.bmp" />
-    <Resource Include="assets\v.bmp" />
-    <Resource Include="assets\w.bmp" />
-    <Resource Include="assets\x.bmp" />
-    <Resource Include="assets\y.bmp" />
-    <Resource Include="assets\z.bmp" />
+    <Resource Include="assets\a1.PNG" />
+    <Resource Include="assets\b1.PNG" />
+    <Resource Include="assets\c1.PNG" />
+    <Resource Include="assets\d1.PNG" />
+    <Resource Include="assets\e1.PNG" />
+    <Resource Include="assets\f1.PNG" />
+    <Resource Include="assets\g1.PNG" />
+    <Resource Include="assets\h1.PNG" />
+    <Resource Include="assets\i1.PNG" />
+    <Resource Include="assets\j1.PNG" />
+    <Resource Include="assets\k1.PNG" />
+    <Resource Include="assets\l1.PNG" />
+    <Resource Include="assets\m1.PNG" />
+    <Resource Include="assets\n1.PNG" />
+    <Resource Include="assets\o1.PNG" />
+    <Resource Include="assets\p1.PNG" />
+    <Resource Include="assets\q1.PNG" />
+    <Resource Include="assets\r1.PNG" />
+    <Resource Include="assets\s1.PNG" />
+    <Resource Include="assets\t1.PNG" />
+    <Resource Include="assets\u1.PNG" />
+    <Resource Include="assets\v1.PNG" />
+    <Resource Include="assets\w1.PNG" />
+    <Resource Include="assets\x1.PNG" />
+    <Resource Include="assets\y1.PNG" />
+    <Resource Include="assets\z1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.0.2\build\Accord.targets" Condition="Exists('..\packages\Accord.3.0.2\build\Accord.targets')" />
