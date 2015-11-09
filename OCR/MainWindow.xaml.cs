@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Drawing.Imaging;
 using Accord.MachineLearning;
-
+using System.Drawing.Drawing2D;
 namespace OCR
 {
     /// <summary>
@@ -318,10 +318,35 @@ namespace OCR
             return res;
         }
 
+        public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
+        {
+            var destRect = new System.Drawing.Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
         private Bitmap cropImage(Bitmap bitmap)
         {
             int x, y;
             int top, bottom, left, right;
+            int testlimit = (bitmap.Height > bitmap.Width) ? bitmap.Width : bitmap.Height;
             top = bitmap.Height;
             left = bitmap.Width;
             right = bottom = 0;
@@ -347,7 +372,7 @@ namespace OCR
             {
                 gr.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height), crop, GraphicsUnit.Pixel);
             }
-            return bmp;
+            return ResizeImage(bmp, 50, 50);
         }
 
         private Bitmap getImageBitmap(string fileName)
