@@ -273,7 +273,7 @@ namespace OCR
                     }
                 }
 
-                KNearestNeighbors knn = new KNearestNeighbors(k: 10, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
+                KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
                 double[] v3 = getVectors(getImageBitmap(filename));
                 int answer = knn.Compute(getVectors(getImageBitmap(filename)));
                 Console.WriteLine("a = " + answer);
