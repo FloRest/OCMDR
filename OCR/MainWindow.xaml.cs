@@ -48,7 +48,7 @@ namespace OCR
 
     public partial class MainWindow : Window
     {
-        private int                 grayLimit = 200;
+        private int                 grayLimit = 250;
         private List<string>        dictionary = new List<string>();
 
         public Bitmap bitmap { get; set; }
@@ -94,159 +94,157 @@ namespace OCR
                             if (letters[0] == null) {
                                 letters[0] = new List<double[]>();
                             }
-                            double[] v2 = getVectors(cropImage(getImageBitmap(file.FullName)))[0];
-                            letters[0].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[0].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'b':
                             if (letters[1] == null) {
                                 letters[1] = new List<double[]>();
                             }
-                            double[] v3 = getVectors(cropImage(getImageBitmap(file.FullName)))[0];
-                            letters[1].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[1].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'c':
                             if (letters[2] == null) {
                                 letters[2] = new List<double[]>();
                             }
-                            letters[2].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[2].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'd':
                             if (letters[3] == null) {
                                 letters[3] = new List<double[]>();
                             }
-                            letters[3].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[3].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'e':
                             if (letters[4] == null) {
                                 letters[4] = new List<double[]>();
                             }
-                            letters[4].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[4].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'f':
                             if (letters[5] == null) {
                                 letters[5] = new List<double[]>();
                             }
-                            letters[5].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[5].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'g':
                             if (letters[6] == null) {
                                 letters[6] = new List<double[]>();
                             }
-                            letters[6].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[6].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'h':
                             if (letters[7] == null)  {
                                 letters[7] = new List<double[]>();
                             }
-                            letters[7].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[7].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'i':
                             if (letters[8] == null) {
                                 letters[8] = new List<double[]>();
                             }
-                            letters[8].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[8].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'j':
                             if (letters[9] == null) {
                                 letters[9] = new List<double[]>();
                             }
-                            letters[9].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[9].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'k':
                             if (letters[10] == null) {
                                 letters[10] = new List<double[]>();
                             }
-                            letters[10].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[10].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'l':
                             if (letters[11] == null) {
                                 letters[11] = new List<double[]>();
                             }
-                            letters[11].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[11].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'm':
                             if (letters[12] == null) {
                                 letters[12] = new List<double[]>();
                             }
-                            letters[12].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[12].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'n':
                             if (letters[13] == null) {
                                 letters[13] = new List<double[]>();
                             }
-                            letters[13].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[13].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'o':
                             if (letters[14] == null) {
                                 letters[14] = new List<double[]>();
                             }
-                            letters[14].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[14].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'p':
                             if (letters[15] == null) {
                                 letters[15] = new List<double[]>();
                             }
-                            letters[15].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[15].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'q':
                             if (letters[16] == null) {
                                 letters[16] = new List<double[]>();
                             }
-                            letters[16].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[16].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'r':
                             if (letters[17] == null) {
                                 letters[17] = new List<double[]>();
                             }
-                            letters[17].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[17].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 's':
                             if (letters[18] == null) {
                                 letters[18] = new List<double[]>();
                             }
-                            letters[18].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[18].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 't':
                             if (letters[19] == null){
                                 letters[19] = new List<double[]>();
                             }
-                            letters[19].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[19].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'u':
                             if (letters[20] == null) {
                                 letters[20] = new List<double[]>();
                             }
-                            letters[20].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[20].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'v':
                             if (letters[21] == null) {
                                 letters[21] = new List<double[]>();
                             }
-                            letters[21].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[21].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'w':
                             if (letters[22] == null) {
                                 letters[22] = new List<double[]>();
                             }
-                            letters[22].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[22].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'x':
                             if (letters[23] == null) {
                                 letters[23] = new List<double[]>();
                             }
-                            letters[23].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[23].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'y':
                             if (letters[24] == null) {
                                 letters[24] = new List<double[]>();
                             }
-                            letters[24].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[24].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                         case 'z':
                             if (letters[25] == null) {
                                 letters[25] = new List<double[]>();
                             }
-                            letters[25].Add(getVectors(cropImage(getImageBitmap(file.FullName)))[0]);
+                            letters[25].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                             break;
                     }
                 }
@@ -275,47 +273,43 @@ namespace OCR
                     }
                 }
 
-                KNearestNeighbors knn = new KNearestNeighbors(k: 4, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
-                double[] v1 = getVectors(getImageBitmap(filename))[0];
-                int answer = knn.Compute(getVectors(getImageBitmap(filename))[0]);
+                KNearestNeighbors knn = new KNearestNeighbors(k: 10, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
+                double[] v3 = getVectors(getImageBitmap(filename));
+                int answer = knn.Compute(getVectors(getImageBitmap(filename)));
                 Console.WriteLine("a = " + answer);
             }
         }
 
-        private double[][] getVectors(Bitmap source) {
+        private double[] getVectors(Bitmap source) {
             int x;
             int y;
-            int xp = 0;
-            int yp = 0;
+            int xp;
+            int yp;
             double[][] res = new double[2][];
-            List<double>[] vectors = new List<double>[2];
+            List<double> vector = new List<double>();
 
-            vectors[0] = new List<double>();
-            vectors[1] = new List<double>();
             for (x = 0; x < source.Width; x++) {
-                vectors[0].Add(0);
+                vector.Add(0);
                 for (y = 0; y < source.Height; y++) {
                     System.Drawing.Color pixelColor = source.GetPixel(x, y);
                     if (pixelColor.R <= this.grayLimit) {
-                        vectors[0][xp] += 1;
+                        vector[x] += 1;
                     }
                 }
-                xp++;
             }
             for (y = 0; y < source.Height; y++) {
-                vectors[1].Add(0);
+                yp = vector.Count;
+                vector.Add(0);
                 for (x = 0; x < source.Width; x++) {
                     System.Drawing.Color pixelColor = source.GetPixel(x, y);
                     if (pixelColor.R <= this.grayLimit) {
-                        vectors[1][yp] += 1;
+                        vector[yp] += 1;
                     }
                 }
                 yp++;
             }
-            res[0] = vectors[0].ToArray();
-            res[1] = vectors[1].ToArray();
-            Console.WriteLine("[{0}]", string.Join(", ", res[0]));
-            return res;
+            //Console.WriteLine("[{0}]", string.Join(", ", res[0]));
+            return vector.ToArray();
         }
 
         public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)

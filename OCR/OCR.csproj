@@ -144,6 +144,34 @@
     <Resource Include="assets\y1.PNG" />
     <Resource Include="assets\z1.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\a2.bmp" />
+    <Resource Include="assets\b2.bmp" />
+    <Resource Include="assets\c2.bmp" />
+    <Resource Include="assets\d2.bmp" />
+    <Resource Include="assets\e2.bmp" />
+    <Resource Include="assets\f2.bmp" />
+    <Resource Include="assets\g2.bmp" />
+    <Resource Include="assets\h2.bmp" />
+    <Resource Include="assets\i2.bmp" />
+    <Resource Include="assets\j2.bmp" />
+    <Resource Include="assets\k2.bmp" />
+    <Resource Include="assets\l2.bmp" />
+    <Resource Include="assets\m2.bmp" />
+    <Resource Include="assets\n2.bmp" />
+    <Resource Include="assets\o2.bmp" />
+    <Resource Include="assets\p2.bmp" />
+    <Resource Include="assets\q2.bmp" />
+    <Resource Include="assets\r2.bmp" />
+    <Resource Include="assets\s2.bmp" />
+    <Resource Include="assets\t2.bmp" />
+    <Resource Include="assets\u2.bmp" />
+    <Resource Include="assets\v2.bmp" />
+    <Resource Include="assets\w2.bmp" />
+    <Resource Include="assets\x2.bmp" />
+    <Resource Include="assets\y2.bmp" />
+    <Resource Include="assets\z2.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.0.2\build\Accord.targets" Condition="Exists('..\packages\Accord.3.0.2\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
