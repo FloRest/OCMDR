@@ -127,10 +127,13 @@ namespace OCR
                     letters.Add(getVectors(cropImage(getImageBitmap(file.FullName))));
                 }
 
+                DateTime start = DateTime.Now;
+
                 KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: indexes.Count, inputs: letters.ToArray(), outputs: outputList.ToArray());
                 int answer = knn.Compute(getVectors(cropImage(MakeGrayscale(getImageBitmap(filename)))));
                 string res = indexes[answer];
-                Console.WriteLine(res);
+                lettre.Content = res;
+                timeSpent.Content = "Execution time: " + (DateTime.Now - start);
             }
         }
 

@@ -166,7 +166,6 @@
     <Resource Include="assets\W2.bmp" />
     <Resource Include="assets\X1.PNG" />
     <Resource Include="assets\X2.bmp" />
-    <Resource Include="assets\Y1.bmp" />
     <Resource Include="assets\Z1.PNG" />
     <Resource Include="assets\Z2.bmp" />
   </ItemGroup>

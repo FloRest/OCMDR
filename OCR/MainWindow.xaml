@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="750">
-    <Grid>
+        Title="MainWindow" Height="400" Width="755" FontSize="14.667" Background="#FF505050">
+    <Grid Background="#353535">
         <TextBox Height="32" HorizontalAlignment="Left" Margin="6,10,0,0" Name="FileNameTextBox"
-                 VerticalAlignment="Top" Width="633" />
+                 VerticalAlignment="Top" Width="633" Background="#505050" Foreground="White" />
         <Button Content="Browse" Height="32" HorizontalAlignment="Left" Margin="644,10,0,0"
-                Name="browse" VerticalAlignment="Top" Width="88" Click="browse_Click" />
-        <Border BorderThickness="1" BorderBrush="#FFFF0000" HorizontalAlignment="Left" Height="260" Margin="6,95,0,0" VerticalAlignment="Top" Width="310">
-            <Image x:Name="picture" />
+                Name="browse" VerticalAlignment="Top" Width="88" Click="browse_Click" Background="#505050" Foreground="White" />
+        <Border BorderThickness="1" BorderBrush="#888888" HorizontalAlignment="Left" Height="260" Margin="6,95,0,0" VerticalAlignment="Top" Width="310" CornerRadius="3">
+            <Image x:Name="picture" Margin="-1,0,0,0" />
         </Border>
-        <Label x:Name="pictureLabel" Content="Selected picture" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="306" FontSize="21.333" FontWeight="Bold"/>
-        <TextBlock x:Name="Result" HorizontalAlignment="Left" Margin="422,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="310"/>
-        <Label x:Name="label" Content="Result" HorizontalAlignment="Left" Margin="422,57,0,0" VerticalAlignment="Top" Width="310" FontSize="21.333" FontWeight="Bold"/>
-        <Border BorderThickness="1" BorderBrush="#FFFF0000" HorizontalAlignment="Left" Height="260" Margin="422,95,0,0" VerticalAlignment="Top" Width="310">
-            <Image x:Name="pictureRes" />
+        <Label x:Name="pictureLabel" Content="Selected picture" HorizontalAlignment="Left" Margin="6,67,0,0" VerticalAlignment="Top" Width="310" FontSize="21.333" FontWeight="Bold" Foreground="White" Background="#FFB2621F"/>
+        <Border BorderThickness="1" BorderBrush="#888888" HorizontalAlignment="Left" Height="260" Margin="422,95,0,0" VerticalAlignment="Top" Width="310" CornerRadius="3">
+            <TextBlock x:Name="Result" HorizontalAlignment="Left" Margin="-1" TextWrapping="Wrap" VerticalAlignment="Top" Height="260" Width="310" />
         </Border>
+        <Label x:Name="lettre" Width="200" Height="100" Margin="483,164,64,105" FontSize="64" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" />
+        <Label x:Name="timeSpent" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="422,319,0,0" VerticalAlignment="Top" Height="36" Width="310" Foreground="#FFB2621F"/>
+        <Label x:Name="label" Content="Result" HorizontalAlignment="Left" Margin="422,67,0,0" VerticalAlignment="Top" Width="310" FontSize="21.333" FontWeight="Bold" Foreground="White" Background="#FFB2621F"/>
     </Grid>
 </Window>
