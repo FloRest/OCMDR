@@ -51,7 +51,6 @@ namespace OCR
         private int                 grayLimit = 250;
         private List<string>        dictionary = new List<string>();
 
-        public Bitmap bitmap { get; set; }
 
         public MainWindow()
         {
@@ -64,13 +63,10 @@ namespace OCR
         }
         public static Bitmap MakeGrayscale(Bitmap original)
         {
-            //create a blank bitmap the same size as original
             Bitmap newBitmap = new Bitmap(original.Width, original.Height);
 
-            //get a graphics object from the new image
             Graphics g = Graphics.FromImage(newBitmap);
 
-            //create the grayscale ColorMatrix
             ColorMatrix colorMatrix = new ColorMatrix(
                new float[][]
                {
@@ -81,18 +77,13 @@ namespace OCR
                  new float[] {0, 0, 0, 0, 1}
                });
 
-            //create some image attributes
             ImageAttributes attributes = new ImageAttributes();
 
-            //set the color matrix attribute
             attributes.SetColorMatrix(colorMatrix);
 
-            //draw the original image on the new image
-            //using the grayscale color matrix
             g.DrawImage(original, new System.Drawing.Rectangle(0, 0, original.Width, original.Height),
                0, 0, original.Width, original.Height, GraphicsUnit.Pixel, attributes);
 
-            //dispose the Graphics object
             g.Dispose();
             return newBitmap;
         }
@@ -111,17 +102,13 @@ namespace OCR
                 BitmapImage imgSource = new BitmapImage(uri);
 
                 FileNameTextBox.Text = filename;
-                this.bitmap = getImageBitmap(filename);
-                this.bitmap = cropImage(this.bitmap);
                 picture.Source = imgSource;
-                pictureRes.Source = Tools.ToBitmapImage(this.bitmap);
 
                 /* KNN */
                 List<double []> letters = new List<double[]>();
                 List<int> outputList = new List<int>();
                 List<string> indexes = new List<string>();
 
-                //getting each file in assets, crop, and get vectors
                 foreach (string letterPath in dictionary) {
                     FileInfo file = new FileInfo(letterPath);
                     string nameClean = file.Name.Substring(0, file.Name.Length - 4);
