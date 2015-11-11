@@ -77,7 +77,7 @@ namespace OCR
 
                 FileNameTextBox.Text = filename;
                 this.bitmap = getImageBitmap(filename);
-                this.bitmap = cropImage(this.bitmap);
+                this.bitmap = cropImage(MakeGrayscale(this.bitmap));
                 picture.Source = imgSource;
                 pictureRes.Source = Tools.ToBitmapImage(this.bitmap);
 
@@ -275,7 +275,7 @@ namespace OCR
 
                 KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
                 double[] v3 = getVectors(getImageBitmap(filename));
-                int answer = knn.Compute(getVectors(getImageBitmap(filename)));
+                int answer = knn.Compute(getVectors(cropImage(MakeGrayscale(getImageBitmap(filename)))));
                 Console.WriteLine("a = " + answer);
             }
         }
@@ -312,7 +312,7 @@ namespace OCR
             return vector.ToArray();
         }
 
-        public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
+        public Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
         {
             var destRect = new System.Drawing.Rectangle(0, 0, width, height);
             var destImage = new Bitmap(width, height);
@@ -367,6 +367,41 @@ namespace OCR
                 gr.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height), crop, GraphicsUnit.Pixel);
             }
             return ResizeImage(bmp, 50, 50);
+        }
+
+        public static Bitmap MakeGrayscale(Bitmap original)
+        {
+            //create a blank bitmap the same size as original
+            Bitmap newBitmap = new Bitmap(original.Width, original.Height);
+
+            //get a graphics object from the new image
+            Graphics g = Graphics.FromImage(newBitmap);
+
+            //create the grayscale ColorMatrix
+            ColorMatrix colorMatrix = new ColorMatrix(
+               new float[][]
+               {
+                 new float[] {.3f, .3f, .3f, 0, 0},
+                 new float[] {.59f, .59f, .59f, 0, 0},
+                 new float[] {.11f, .11f, .11f, 0, 0},
+                 new float[] {0, 0, 0, 1, 0},
+                 new float[] {0, 0, 0, 0, 1}
+               });
+
+            //create some image attributes
+            ImageAttributes attributes = new ImageAttributes();
+
+            //set the color matrix attribute
+            attributes.SetColorMatrix(colorMatrix);
+
+            //draw the original image on the new image
+            //using the grayscale color matrix
+            g.DrawImage(original, new System.Drawing.Rectangle(0, 0, original.Width, original.Height),
+               0, 0, original.Width, original.Height, GraphicsUnit.Pixel, attributes);
+
+            //dispose the Graphics object
+            g.Dispose();
+            return newBitmap;
         }
 
         private Bitmap getImageBitmap(string fileName)
