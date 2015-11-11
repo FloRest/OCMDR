@@ -56,7 +56,7 @@ namespace OCR
         {
             InitializeComponent();
             try {
-                dictionary = Directory.GetFiles("../..//assets").ToList();
+                dictionary = Directory.GetFiles("../../assets").ToList();
             } catch (DirectoryNotFoundException e) {
                 Console.WriteLine("ERROR: Directory not found");
             }
