@@ -96,12 +96,13 @@ namespace OCR
                     }
                     int i = indexes.IndexOf(nameClean);
 
-                    Console.WriteLine(nameClean);
                     if (i <= -1) {
                         indexes.Add(nameClean);
+                        outputList.Add(indexes.Count - 1);
+                    } else {
+                        outputList.Add(i);
                     }
                     letters.Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                    outputList.Add(i);
                 }
 
                 KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: indexes.Count, inputs: letters.ToArray(), outputs: outputList.ToArray());
