@@ -77,205 +77,35 @@ namespace OCR
 
                 FileNameTextBox.Text = filename;
                 this.bitmap = getImageBitmap(filename);
-                this.bitmap = cropImage(MakeGrayscale(this.bitmap));
+                this.bitmap = cropImage(this.bitmap);
                 picture.Source = imgSource;
                 pictureRes.Source = Tools.ToBitmapImage(this.bitmap);
 
                 /* KNN */
-                List<double []>[] letters = new List<double []>[26];
+                List<double []> letters = new List<double[]>();
                 List<int> outputList = new List<int>();
+                List<string> indexes = new List<string>();
 
                 //getting each file in assets, crop, and get vectors
                 foreach (string letterPath in dictionary) {
                     FileInfo file = new FileInfo(letterPath);
+                    string nameClean = file.Name.Substring(0, file.Name.Length - 4);
 
-                    switch (file.Name[0]) {
-                        case 'a':
-                            if (letters[0] == null) {
-                                letters[0] = new List<double[]>();
-                            }
-                            letters[0].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'b':
-                            if (letters[1] == null) {
-                                letters[1] = new List<double[]>();
-                            }
-                            letters[1].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'c':
-                            if (letters[2] == null) {
-                                letters[2] = new List<double[]>();
-                            }
-                            letters[2].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'd':
-                            if (letters[3] == null) {
-                                letters[3] = new List<double[]>();
-                            }
-                            letters[3].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'e':
-                            if (letters[4] == null) {
-                                letters[4] = new List<double[]>();
-                            }
-                            letters[4].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'f':
-                            if (letters[5] == null) {
-                                letters[5] = new List<double[]>();
-                            }
-                            letters[5].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'g':
-                            if (letters[6] == null) {
-                                letters[6] = new List<double[]>();
-                            }
-                            letters[6].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'h':
-                            if (letters[7] == null)  {
-                                letters[7] = new List<double[]>();
-                            }
-                            letters[7].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'i':
-                            if (letters[8] == null) {
-                                letters[8] = new List<double[]>();
-                            }
-                            letters[8].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'j':
-                            if (letters[9] == null) {
-                                letters[9] = new List<double[]>();
-                            }
-                            letters[9].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'k':
-                            if (letters[10] == null) {
-                                letters[10] = new List<double[]>();
-                            }
-                            letters[10].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'l':
-                            if (letters[11] == null) {
-                                letters[11] = new List<double[]>();
-                            }
-                            letters[11].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'm':
-                            if (letters[12] == null) {
-                                letters[12] = new List<double[]>();
-                            }
-                            letters[12].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'n':
-                            if (letters[13] == null) {
-                                letters[13] = new List<double[]>();
-                            }
-                            letters[13].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'o':
-                            if (letters[14] == null) {
-                                letters[14] = new List<double[]>();
-                            }
-                            letters[14].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'p':
-                            if (letters[15] == null) {
-                                letters[15] = new List<double[]>();
-                            }
-                            letters[15].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'q':
-                            if (letters[16] == null) {
-                                letters[16] = new List<double[]>();
-                            }
-                            letters[16].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'r':
-                            if (letters[17] == null) {
-                                letters[17] = new List<double[]>();
-                            }
-                            letters[17].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 's':
-                            if (letters[18] == null) {
-                                letters[18] = new List<double[]>();
-                            }
-                            letters[18].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 't':
-                            if (letters[19] == null){
-                                letters[19] = new List<double[]>();
-                            }
-                            letters[19].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'u':
-                            if (letters[20] == null) {
-                                letters[20] = new List<double[]>();
-                            }
-                            letters[20].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'v':
-                            if (letters[21] == null) {
-                                letters[21] = new List<double[]>();
-                            }
-                            letters[21].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'w':
-                            if (letters[22] == null) {
-                                letters[22] = new List<double[]>();
-                            }
-                            letters[22].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'x':
-                            if (letters[23] == null) {
-                                letters[23] = new List<double[]>();
-                            }
-                            letters[23].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'y':
-                            if (letters[24] == null) {
-                                letters[24] = new List<double[]>();
-                            }
-                            letters[24].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
-                        case 'z':
-                            if (letters[25] == null) {
-                                letters[25] = new List<double[]>();
-                            }
-                            letters[25].Add(getVectors(cropImage(getImageBitmap(file.FullName))));
-                            break;
+                    while (Char.IsDigit(nameClean[nameClean.Length - 1])) {
+                        nameClean = nameClean.Substring(0, nameClean.Length - 1);
                     }
+                    int i = indexes.IndexOf(nameClean);
+
+                    Console.WriteLine(nameClean);
+                    if (i <= -1) {
+                        indexes.Add(nameClean);
+                    }
+                    letters.Add(getVectors(cropImage(getImageBitmap(file.FullName))));
+                    outputList.Add(i);
                 }
 
-                int totlaLetters = 0;
-                int totlaLettersTypes = 0;
-                
-                //get input array size
-                for (int i = 0; i < letters.Length; ++i) {
-                    if (letters[i] != null) {
-                        foreach (double[] letter in letters[i]) {
-                            totlaLetters++;
-                        }
-                        totlaLettersTypes++;
-                    }
-                }
-                double[][] inputs = new double[totlaLetters][];
-                int j = 0;
-
-                for (int i = 0; i < letters.Length; ++i) {
-                    if (letters[i] != null) {
-                        foreach (double[] letter in letters[i]) {
-                            inputs[j++] = letter;
-                            outputList.Add(i);
-                        }
-                    }
-                }
-
-                KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: totlaLettersTypes, inputs: inputs, outputs: outputList.ToArray());
-                double[] v3 = getVectors(getImageBitmap(filename));
-                int answer = knn.Compute(getVectors(cropImage(MakeGrayscale(getImageBitmap(filename)))));
+                KNearestNeighbors knn = new KNearestNeighbors(k: 3, classes: indexes.Count, inputs: letters.ToArray(), outputs: outputList.ToArray());
+                int answer = knn.Compute(getVectors(cropImage(getImageBitmap(filename))));
                 Console.WriteLine("a = " + answer);
             }
         }
@@ -283,9 +113,6 @@ namespace OCR
         private double[] getVectors(Bitmap source) {
             int x;
             int y;
-            int xp;
-            int yp;
-            double[][] res = new double[2][];
             List<double> vector = new List<double>();
 
             for (x = 0; x < source.Width; x++) {
@@ -298,21 +125,19 @@ namespace OCR
                 }
             }
             for (y = 0; y < source.Height; y++) {
-                yp = vector.Count;
                 vector.Add(0);
                 for (x = 0; x < source.Width; x++) {
                     System.Drawing.Color pixelColor = source.GetPixel(x, y);
                     if (pixelColor.R <= this.grayLimit) {
-                        vector[yp] += 1;
+                        vector[vector.Count - 1] += 1;
                     }
                 }
-                yp++;
             }
-            //Console.WriteLine("[{0}]", string.Join(", ", res[0]));
+            //Console.WriteLine("[{0}]\n", string.Join(", ", vector.ToArray()));
             return vector.ToArray();
         }
 
-        public Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
+        public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
         {
             var destRect = new System.Drawing.Rectangle(0, 0, width, height);
             var destImage = new Bitmap(width, height);
@@ -367,41 +192,6 @@ namespace OCR
                 gr.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height), crop, GraphicsUnit.Pixel);
             }
             return ResizeImage(bmp, 50, 50);
-        }
-
-        public static Bitmap MakeGrayscale(Bitmap original)
-        {
-            //create a blank bitmap the same size as original
-            Bitmap newBitmap = new Bitmap(original.Width, original.Height);
-
-            //get a graphics object from the new image
-            Graphics g = Graphics.FromImage(newBitmap);
-
-            //create the grayscale ColorMatrix
-            ColorMatrix colorMatrix = new ColorMatrix(
-               new float[][]
-               {
-                 new float[] {.3f, .3f, .3f, 0, 0},
-                 new float[] {.59f, .59f, .59f, 0, 0},
-                 new float[] {.11f, .11f, .11f, 0, 0},
-                 new float[] {0, 0, 0, 1, 0},
-                 new float[] {0, 0, 0, 0, 1}
-               });
-
-            //create some image attributes
-            ImageAttributes attributes = new ImageAttributes();
-
-            //set the color matrix attribute
-            attributes.SetColorMatrix(colorMatrix);
-
-            //draw the original image on the new image
-            //using the grayscale color matrix
-            g.DrawImage(original, new System.Drawing.Rectangle(0, 0, original.Width, original.Height),
-               0, 0, original.Width, original.Height, GraphicsUnit.Pixel, attributes);
-
-            //dispose the Graphics object
-            g.Dispose();
-            return newBitmap;
         }
 
         private Bitmap getImageBitmap(string fileName)
