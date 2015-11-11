@@ -157,7 +157,6 @@ namespace OCR
                     }
                 }
             }
-            //Console.WriteLine("[{0}]\n", string.Join(", ", vector.ToArray()));
             return vector.ToArray();
         }
 
